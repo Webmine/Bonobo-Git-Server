@@ -547,6 +547,7 @@
     <Content Include="..\readme.md">
       <Link>readme.md</Link>
     </Content>
+    <None Include="x86\SQLite.Interop.dll" />
     <Content Include="App_Data\Web.config" />
     <Content Include="App_Data\Git\astextplain" />
     <Content Include="App_Data\Git\awk" />
@@ -649,6 +650,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Recovery\" />
+    <Folder Include="x64\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
