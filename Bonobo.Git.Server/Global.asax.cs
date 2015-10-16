@@ -69,10 +69,10 @@ namespace Bonobo.Git.Server
             AreaRegistration.RegisterAllAreas();
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            UserConfiguration.Initialize();
             RegisterDependencyResolver();
 
             new AutomaticUpdater().Run();
-            UserConfiguration.Initialize();
             new RepositorySynchronizer().Run();
         }
 
@@ -302,6 +302,11 @@ namespace Bonobo.Git.Server
             return Path.IsPathRooted(path) ?
                 path :
                 HttpContext.Current.Server.MapPath(path);
+        }
+
+        public static void RegisterGlobalFilterst(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute { View = "Home/Error" });
         }
     }
 }
