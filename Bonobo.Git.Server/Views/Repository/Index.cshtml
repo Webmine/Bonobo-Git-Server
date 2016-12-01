@@ -27,12 +27,12 @@
 }
 
 <div class="pure-g">
-    <div class="pure-u-3-5">
+    <div class="pure-u-2-5">
         <h1>
             @Resources.Repository_Index_Title
         </h1>
     </div>
-    <div class="pure-u-2-5 add">
+    <div class="pure-u-3-5 add">
         @{
             var sortGroupQuery = Request.QueryString["sortGroup"];
 
@@ -95,7 +95,7 @@
                     var groupColumn = new [] { permitted.Column(format: (item) => Html.Raw(string.Empty), style: "action") };
                     var columns = permitted.Columns(
                         permitted.Column(
-                            format: item => Html.Raw(item.Logo.Exists ? string.Format("<img src='data:image/jpeg;base64,{0}' />", item.Logo.Base64Image) : ""),
+                            format: item => Html.Raw(item.Logo.Exists ? string.Format("<img src='data:image/png;base64,{0}' class='repo-logo' />", item.Logo.Base64Image) : ""),
                             style: "logo"
                         ),
                         permitted.Column("Name",
